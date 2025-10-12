@@ -42,3 +42,18 @@ Once the repository has been cloned, proceed with the direct installation.
 cd GraphReasoning
 pip install .
 ```
+
+
+## Citation
+
+Please cite:
+
+```bibtex
+@article{stewart2025graphagents,
+  title     = {GRAPHAGENTS: KNOWLEDGE GRAPH–GUIDED AGENTIC AI
+FOR CROSS-DOMAIN MATERIALS DESIGN},
+  author    = {x},
+  journal   = {x},
+  year      = {2025},
+  doi       = {x}
+}
