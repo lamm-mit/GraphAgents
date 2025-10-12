@@ -11,8 +11,6 @@ Corresponding author: mbuehler@MIT.EDU
 
 ## Environment Configuration:
 
-## 
-
 ## 1) Create Environment
 
 conda create -n LLM_GraphAgents python=3.11 -y
@@ -42,7 +40,7 @@ Once the repository has been cloned, proceed with the direct installation.
 cd GraphReasoning
 pip install .
 ```
-
+##
 
 ## Citation
 
