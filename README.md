@@ -8,9 +8,10 @@ Corresponding author: mbuehler@MIT.EDU
 
 ## Getting Started
 
-1. Install cuda toolkit
-2. Install llama-cpp-python
-3. Install GraphReasoning package
+1. Instantiate Environment
+2. Install CUDA tooklit
+3. Install llama-cpp-python
+4. Install GraphReasoning package
 
 ## 1) Environment Configuration:
 
