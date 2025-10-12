@@ -28,7 +28,8 @@ CMAKE_ARGS="-DGGML_CUDA=on -DLLAVA_BUILD=on" FORCE_CMAKE=1 pip install git+https
 
 ```
 
-## 3) Install GraphReasoning package
+# 3) Install GraphReasoning package
+
 
 ```
 cd GraphReasoning
