@@ -1,4 +1,4 @@
-# Using LLMs and Knowledge graphs to search for PFAS Alternatives
+# GRAPHAGENTS: KNOWLEDGE GRAPH–GUIDED AGENTIC AI FOR CROSS-DOMAIN MATERIALS DESIGN
 
 #### Isabella Stewart, Yu-Chuan (Michael) Hsu, Tarjei Hage, and Markus J. Buehler, MIT, 2025 
 
