@@ -35,8 +35,9 @@ CMAKE_ARGS="-DGGML_CUDA=on -DLLAVA_BUILD=on" FORCE_CMAKE=1 pip install git+https
 ```
 
 ## 4) Install GraphReasoning package
-Once the repository has been cloned, proceed with the direct installation.
+Clone the repository and proceed with the direct installation.
 ```
+git clone https://github.com/lamm-mit/GraphAgents.git
 cd GraphReasoning
 pip install .
 ```
