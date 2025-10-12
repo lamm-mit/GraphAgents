@@ -5,11 +5,12 @@ Corresponding author: mbuehler@MIT.EDU
 
 #### LAMM, Massachusetts Institute of Technology
 
+
+## Getting Started
+
 1. Install cuda toolkit
 2. Install llama-cpp-python
 3. Install GraphReasoning package
-
-## Getting Started
 
 ## 1) Environment Configuration:
 
