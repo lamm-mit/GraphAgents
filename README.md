@@ -9,9 +9,9 @@ Corresponding author: mbuehler@MIT.EDU
 2. Install llama-cpp-python
 3. Install GraphReasoning package
 
-## Environment Configuration:
+## Getting Started
 
-## 1) Create Environment
+## 1) Environment Configuration:
 
 conda create -n LLM_GraphAgents python=3.11 -y
 conda activate LLM_GraphAgents
@@ -40,7 +40,6 @@ Once the repository has been cloned, proceed with the direct installation.
 cd GraphReasoning
 pip install .
 ```
-##
 
 ## Citation
 
