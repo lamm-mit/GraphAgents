@@ -132,19 +132,19 @@ def graphPrompt(input: str, generate, generate_figure=None, image_list=None, met
 
     return G
 
-def colors2Community(communities) -> pd.DataFrame:
+# def colors2Community(communities) -> pd.DataFrame:
     
-    p = sns.color_palette(palette, len(communities)).as_hex()
-    random.shuffle(p)
-    rows = []
-    group = 0
-    for community in communities:
-        color = p.pop()
-        group += 1
-        for node in community:
-            rows += [{"node": node, "color": color, "group": group}]
-    df_colors = pd.DataFrame(rows)
-    return df_colors
+#     p = sns.color_palette(palette, len(communities)).as_hex()
+#     random.shuffle(p)
+#     rows = []
+#     group = 0
+#     for community in communities:
+#         color = p.pop()
+#         group += 1
+#         for node in community:
+#             rows += [{"node": node, "color": color, "group": group}]
+#     df_colors = pd.DataFrame(rows)
+#     return df_colors
 #
 def make_graph_from_text (txt,generate, generate_figure=None, image_list=None,
                           graph_root='graph_root',
