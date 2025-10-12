@@ -1,4 +1,4 @@
-# Using LLMs and Knowledge graphs to search for PFAS Alternatives
+# GRAPHAGENTS: KNOWLEDGE GRAPH–GUIDED AGENTIC AI FOR CROSS-DOMAIN MATERIALS DESIGN
 
 #### Isabella Stewart, Yu-Chuan (Michael) Hsu, Tarjei Hage, Wei Lu, and Markus J. Buehler, MIT, 2025 
 istewart@MIT.EDU, mkychsu@MIT.EDU, tphage@MIT.EDU, wl7@MIT.EDU, mbuehler@MIT.EDU
@@ -24,7 +24,7 @@ CMAKE_ARGS="-DGGML_CUDA=on -DLLAVA_BUILD=on" FORCE_CMAKE=1 pip install git+https
 
 ```
 
-## 3)
+## 3) Install GraphReasoning
 
 ```
 cd GraphReasoning
