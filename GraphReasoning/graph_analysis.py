@@ -1,4 +1,4 @@
-# Analysis functions for graph data, including community detection and path finding
+# Analysis functions for graph data such as path finding
 import os
 import re
 import math
