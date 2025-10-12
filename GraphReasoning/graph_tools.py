@@ -132,424 +132,424 @@ def find_best_fitting_node_list(keyword, embeddings, tokenizer, model, N_samples
     return [(node, similarity) for similarity, node in best_nodes]
 
 
-# Example usage
-def visualize_embeddings_2d(embeddings , data_dir='./'):
-    # Generate embeddings
-    #embeddings = generate_node_embeddings(graph, tokenizer, model)
+# # Example usage
+# def visualize_embeddings_2d(embeddings , data_dir='./'):
+#     # Generate embeddings
+#     #embeddings = generate_node_embeddings(graph, tokenizer, model)
     
-    # Extract the embedding vectors
-    node_ids = list(embeddings.keys())
-    vectors = np.array([embeddings[node].flatten() for node in node_ids])
+#     # Extract the embedding vectors
+#     node_ids = list(embeddings.keys())
+#     vectors = np.array([embeddings[node].flatten() for node in node_ids])
     
-    # Reduce dimensions to 2D using PCA
-    pca = PCA(n_components=2)
-    vectors_2d = pca.fit_transform(vectors)
+#     # Reduce dimensions to 2D using PCA
+#     pca = PCA(n_components=2)
+#     vectors_2d = pca.fit_transform(vectors)
     
-    # Plot
-    plt.figure(figsize=(10, 8))
-    plt.scatter(vectors_2d[:, 0], vectors_2d[:, 1], alpha=0.5)
-    for i, node_id in enumerate(node_ids):
-        plt.text(vectors_2d[i, 0], vectors_2d[i, 1], str(node_id), fontsize=9)
-    plt.title('Node Embeddings Visualization')
-    plt.xlabel('PCA 1')
-    plt.ylabel('PCA 2')
-    plt.savefig(f'{data_dir}/node_embeddings_2d.svg')  # Save the figure as SVG
-    plt.show()
+#     # Plot
+#     plt.figure(figsize=(10, 8))
+#     plt.scatter(vectors_2d[:, 0], vectors_2d[:, 1], alpha=0.5)
+#     for i, node_id in enumerate(node_ids):
+#         plt.text(vectors_2d[i, 0], vectors_2d[i, 1], str(node_id), fontsize=9)
+#     plt.title('Node Embeddings Visualization')
+#     plt.xlabel('PCA 1')
+#     plt.ylabel('PCA 2')
+#     plt.savefig(f'{data_dir}/node_embeddings_2d.svg')  # Save the figure as SVG
+#     plt.show()
 
 
-def visualize_embeddings_2d_notext(embeddings, n_clusters=3, data_dir='./'):
-    # Extract the embedding vectors
-    node_ids = list(embeddings.keys())
-    vectors = np.array([embeddings[node].flatten() for node in node_ids])
+# def visualize_embeddings_2d_notext(embeddings, n_clusters=3, data_dir='./'):
+#     # Extract the embedding vectors
+#     node_ids = list(embeddings.keys())
+#     vectors = np.array([embeddings[node].flatten() for node in node_ids])
     
-    # Reduce dimensions to 2D using PCA
-    pca = PCA(n_components=2)
-    vectors_2d = pca.fit_transform(vectors)
+#     # Reduce dimensions to 2D using PCA
+#     pca = PCA(n_components=2)
+#     vectors_2d = pca.fit_transform(vectors)
     
-    # Cluster the embeddings
-    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
-    labels = kmeans.labels_
+#     # Cluster the embeddings
+#     kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
+#     labels = kmeans.labels_
     
-    # Plot
-    plt.figure(figsize=(10, 8))
-    plt.scatter(vectors_2d[:, 0], vectors_2d[:, 1], c=labels, alpha=0.5, cmap='viridis')
-    plt.title('Node Embeddings Visualization')
-    plt.xlabel('PCA 1')
-    plt.ylabel('PCA 2')
-    plt.savefig(f'{data_dir}/node_embeddings_2d_clusters.svg')  # Save the figure as SVG
-    plt.show()
+#     # Plot
+#     plt.figure(figsize=(10, 8))
+#     plt.scatter(vectors_2d[:, 0], vectors_2d[:, 1], c=labels, alpha=0.5, cmap='viridis')
+#     plt.title('Node Embeddings Visualization')
+#     plt.xlabel('PCA 1')
+#     plt.ylabel('PCA 2')
+#     plt.savefig(f'{data_dir}/node_embeddings_2d_clusters.svg')  # Save the figure as SVG
+#     plt.show()
 
 
-def visualize_embeddings_2d_pretty(embeddings, n_clusters=3,  data_dir='./'):
-    # Extract the embedding vectors
-    node_ids = list(embeddings.keys())
-    vectors = np.array([embeddings[node].flatten() for node in node_ids])
+# def visualize_embeddings_2d_pretty(embeddings, n_clusters=3,  data_dir='./'):
+#     # Extract the embedding vectors
+#     node_ids = list(embeddings.keys())
+#     vectors = np.array([embeddings[node].flatten() for node in node_ids])
     
-    # Reduce dimensions to 2D using PCA
-    pca = PCA(n_components=2)
-    vectors_2d = pca.fit_transform(vectors)
+#     # Reduce dimensions to 2D using PCA
+#     pca = PCA(n_components=2)
+#     vectors_2d = pca.fit_transform(vectors)
     
-    # Cluster the embeddings
-    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
-    labels = kmeans.labels_
+#     # Cluster the embeddings
+#     kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
+#     labels = kmeans.labels_
     
-    # Count the number of points in each cluster
-    unique, counts = np.unique(labels, return_counts=True)
-    cluster_counts = dict(zip(unique, counts))
+#     # Count the number of points in each cluster
+#     unique, counts = np.unique(labels, return_counts=True)
+#     cluster_counts = dict(zip(unique, counts))
     
-    # Plot
-    plt.figure(figsize=(10, 8))
-    sns.set(style='whitegrid')  # Set seaborn style for prettier plots
+#     # Plot
+#     plt.figure(figsize=(10, 8))
+#     sns.set(style='whitegrid')  # Set seaborn style for prettier plots
     
-    # Use seaborn's color palette and matplotlib's scatter plot
-    palette = sns.color_palette("hsv", n_clusters)  # Use a different color palette
-    for cluster in range(n_clusters):
-        cluster_points = vectors_2d[labels == cluster]
-        plt.scatter(cluster_points[:, 0], cluster_points[:, 1], label=f'Cluster {cluster} (n={cluster_counts[cluster]})', alpha=0.7, edgecolors='w', s=100, cmap=palette)
+#     # Use seaborn's color palette and matplotlib's scatter plot
+#     palette = sns.color_palette("hsv", n_clusters)  # Use a different color palette
+#     for cluster in range(n_clusters):
+#         cluster_points = vectors_2d[labels == cluster]
+#         plt.scatter(cluster_points[:, 0], cluster_points[:, 1], label=f'Cluster {cluster} (n={cluster_counts[cluster]})', alpha=0.7, edgecolors='w', s=100, cmap=palette)
     
-    plt.title('Node Embeddings Visualization with Clusters')
-    plt.xlabel('PCA 1')
-    plt.ylabel('PCA 2')
-    plt.legend(scatterpoints=1)  # Add a legend to show cluster labels and counts
-    plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_pretty.svg')  # Save the figure as SVG
-    plt.show()
+#     plt.title('Node Embeddings Visualization with Clusters')
+#     plt.xlabel('PCA 1')
+#     plt.ylabel('PCA 2')
+#     plt.legend(scatterpoints=1)  # Add a legend to show cluster labels and counts
+#     plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_pretty.svg')  # Save the figure as SVG
+#     plt.show()
     
-    # Optionally print the counts for each cluster
-    for cluster, count in cluster_counts.items():
-        print(f'Cluster {cluster}: {count} items')
+#     # Optionally print the counts for each cluster
+#     for cluster, count in cluster_counts.items():
+#         print(f'Cluster {cluster}: {count} items')
 
-from scipy.spatial.distance import cdist
+# from scipy.spatial.distance import cdist
 
-def visualize_embeddings_2d_pretty_and_sample(embeddings, n_clusters=3, n_samples=5, data_dir='./',
-                                             alpha=0.7, edgecolors='none', s=50,):
-    # Extract the embedding vectors
-    node_ids = list(embeddings.keys())
-    vectors = np.array([embeddings[node].flatten() for node in node_ids])
+# def visualize_embeddings_2d_pretty_and_sample(embeddings, n_clusters=3, n_samples=5, data_dir='./',
+#                                              alpha=0.7, edgecolors='none', s=50,):
+#     # Extract the embedding vectors
+#     node_ids = list(embeddings.keys())
+#     vectors = np.array([embeddings[node].flatten() for node in node_ids])
     
-    # Reduce dimensions to 2D using PCA
-    pca = PCA(n_components=2)
-    vectors_2d = pca.fit_transform(vectors)
+#     # Reduce dimensions to 2D using PCA
+#     pca = PCA(n_components=2)
+#     vectors_2d = pca.fit_transform(vectors)
     
-    # Cluster the embeddings
-    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
-    labels = kmeans.labels_
+#     # Cluster the embeddings
+#     kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
+#     labels = kmeans.labels_
     
-    # Count the number of points in each cluster
-    unique, counts = np.unique(labels, return_counts=True)
-    cluster_counts = dict(zip(unique, counts))
+#     # Count the number of points in each cluster
+#     unique, counts = np.unique(labels, return_counts=True)
+#     cluster_counts = dict(zip(unique, counts))
     
-    # Plot
-    plt.figure(figsize=(10, 8))
-    sns.set(style='whitegrid')  # Set seaborn style for prettier plots
-    palette = sns.color_palette("hsv", n_clusters)
-    for cluster in range(n_clusters):
-        cluster_points = vectors_2d[labels == cluster]
-        plt.scatter(cluster_points[:, 0], cluster_points[:, 1], label=f'Cluster {cluster} (n={cluster_counts[cluster]})'
-                    , alpha=alpha, edgecolors=edgecolors, s=s, cmap=palette,#alpha=0.7, edgecolors='w', s=100, cmap=palette)
-                   )
+#     # Plot
+#     plt.figure(figsize=(10, 8))
+#     sns.set(style='whitegrid')  # Set seaborn style for prettier plots
+#     palette = sns.color_palette("hsv", n_clusters)
+#     for cluster in range(n_clusters):
+#         cluster_points = vectors_2d[labels == cluster]
+#         plt.scatter(cluster_points[:, 0], cluster_points[:, 1], label=f'Cluster {cluster} (n={cluster_counts[cluster]})'
+#                     , alpha=alpha, edgecolors=edgecolors, s=s, cmap=palette,#alpha=0.7, edgecolors='w', s=100, cmap=palette)
+#                    )
     
-    plt.title('Node Embeddings Visualization with Clusters')
-    plt.xlabel('PCA 1')
-    plt.ylabel('PCA 2')
-    plt.legend(scatterpoints=1)
-    plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_pretty.svg')
-    plt.show()
+#     plt.title('Node Embeddings Visualization with Clusters')
+#     plt.xlabel('PCA 1')
+#     plt.ylabel('PCA 2')
+#     plt.legend(scatterpoints=1)
+#     plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_pretty.svg')
+#     plt.show()
     
-    # Output N_sample terms from the center of each cluster
-    centroids = kmeans.cluster_centers_
-    for cluster in range(n_clusters):
-        cluster_indices = np.where(labels == cluster)[0]
-        cluster_vectors = vectors[cluster_indices]
-        cluster_node_ids = np.array(node_ids)[cluster_indices]
+#     # Output N_sample terms from the center of each cluster
+#     centroids = kmeans.cluster_centers_
+#     for cluster in range(n_clusters):
+#         cluster_indices = np.where(labels == cluster)[0]
+#         cluster_vectors = vectors[cluster_indices]
+#         cluster_node_ids = np.array(node_ids)[cluster_indices]
         
-        # Calculate distances of points in this cluster to the centroid
-        distances = cdist(cluster_vectors, [centroids[cluster]], 'euclidean').flatten()
+#         # Calculate distances of points in this cluster to the centroid
+#         distances = cdist(cluster_vectors, [centroids[cluster]], 'euclidean').flatten()
         
-        # Get indices of N_samples closest points
-        closest_indices = np.argsort(distances)[:n_samples]
-        closest_node_ids = cluster_node_ids[closest_indices]
+#         # Get indices of N_samples closest points
+#         closest_indices = np.argsort(distances)[:n_samples]
+#         closest_node_ids = cluster_node_ids[closest_indices]
         
-        print(f'Cluster {cluster}: {len(cluster_vectors)} items')
-        print(f'Closest {n_samples} node IDs to centroid:', closest_node_ids)
+#         print(f'Cluster {cluster}: {len(cluster_vectors)} items')
+#         print(f'Closest {n_samples} node IDs to centroid:', closest_node_ids)
 
-import numpy as np
-from sklearn.decomposition import PCA
-from sklearn.metrics.pairwise import euclidean_distances
-from sklearn.mixture import GaussianMixture
-from scipy.spatial import Voronoi, voronoi_plot_2d
-import matplotlib.pyplot as plt
+# import numpy as np
+# from sklearn.decomposition import PCA
+# from sklearn.metrics.pairwise import euclidean_distances
+# from sklearn.mixture import GaussianMixture
+# from scipy.spatial import Voronoi, voronoi_plot_2d
+# import matplotlib.pyplot as plt
 
-def visualize_embeddings_with_gmm_density_voronoi_and_print_top_samples(embeddings, n_clusters=5, top_n=3, data_dir='./',s=50):
-    # Extract the embedding vectors
-    descriptions = list(embeddings.keys())
-    node_ids = list(embeddings.keys())
-    vectors = np.array([embeddings[node].flatten() for node in node_ids])
+# def visualize_embeddings_with_gmm_density_voronoi_and_print_top_samples(embeddings, n_clusters=5, top_n=3, data_dir='./',s=50):
+#     # Extract the embedding vectors
+#     descriptions = list(embeddings.keys())
+#     node_ids = list(embeddings.keys())
+#     vectors = np.array([embeddings[node].flatten() for node in node_ids])
     
-    # Reduce dimensions to 2D using PCA
-    pca = PCA(n_components=2)
-    vectors_2d = pca.fit_transform(vectors)
+#     # Reduce dimensions to 2D using PCA
+#     pca = PCA(n_components=2)
+#     vectors_2d = pca.fit_transform(vectors)
     
-    # Fit a Gaussian Mixture Model
-    gmm = GaussianMixture(n_components=n_clusters, random_state=42)
-    gmm.fit(vectors_2d)
-    labels = gmm.predict(vectors_2d)
+#     # Fit a Gaussian Mixture Model
+#     gmm = GaussianMixture(n_components=n_clusters, random_state=42)
+#     gmm.fit(vectors_2d)
+#     labels = gmm.predict(vectors_2d)
     
-    # Generate Voronoi regions
-    vor = Voronoi(gmm.means_)
+#     # Generate Voronoi regions
+#     vor = Voronoi(gmm.means_)
     
-    # Plotting
-    plt.figure(figsize=(10, 10))
-    # Plot Voronoi diagram
-    voronoi_plot_2d(vor, show_vertices=False, show_points=False, line_colors='black', line_width=1, line_alpha=0.7, point_size=2)
+#     # Plotting
+#     plt.figure(figsize=(10, 10))
+#     # Plot Voronoi diagram
+#     voronoi_plot_2d(vor, show_vertices=False, show_points=False, line_colors='black', line_width=1, line_alpha=0.7, point_size=2)
     
-    # Color points based on their cluster
-    for i in range(n_clusters):
-        plt.scatter(vectors_2d[labels == i, 0], vectors_2d[labels == i, 1], s=s, label=f'Cluster {i}')
+#     # Color points based on their cluster
+#     for i in range(n_clusters):
+#         plt.scatter(vectors_2d[labels == i, 0], vectors_2d[labels == i, 1], s=s, label=f'Cluster {i}')
     
-    plt.title('Embedding Vectors with GMM Density and Voronoi Tessellation')
-    plt.xlabel('PCA 1')
-    plt.ylabel('PCA 2')
-    plt.legend()
-    plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_voronoi.svg')
+#     plt.title('Embedding Vectors with GMM Density and Voronoi Tessellation')
+#     plt.xlabel('PCA 1')
+#     plt.ylabel('PCA 2')
+#     plt.legend()
+#     plt.savefig(f'{data_dir}/node_embeddings_2d_clusters_voronoi.svg')
     
-    plt.show()
-    # Print top-ranked sample texts
-    for i in range(n_clusters):
-        cluster_center = gmm.means_[i]
-        cluster_points = vectors_2d[labels == i]
+#     plt.show()
+#     # Print top-ranked sample texts
+#     for i in range(n_clusters):
+#         cluster_center = gmm.means_[i]
+#         cluster_points = vectors_2d[labels == i]
         
-        distances = euclidean_distances(cluster_points, [cluster_center])
-        distances = distances.flatten()
+#         distances = euclidean_distances(cluster_points, [cluster_center])
+#         distances = distances.flatten()
         
-        closest_indices = np.argsort(distances)[:top_n]
+#         closest_indices = np.argsort(distances)[:top_n]
         
-        print(f"\nTop {top_n} closest samples to the center of Cluster {i}:")
-        for idx in closest_indices:
-            original_idx = np.where(labels == i)[0][idx]
-            desc = descriptions[original_idx]
-            print(f"- Description: {desc}, Distance: {distances[idx]:.2f}")
+#         print(f"\nTop {top_n} closest samples to the center of Cluster {i}:")
+#         for idx in closest_indices:
+#             original_idx = np.where(labels == i)[0][idx]
+#             desc = descriptions[original_idx]
+#             print(f"- Description: {desc}, Distance: {distances[idx]:.2f}")
 
-def analyze_network(G,  data_dir='./', root = 'graph_analysis'):
-    # Compute the degrees of the nodes
-    # Compute the degrees of the nodes
-    degrees = [d for n, d in G.degree()]
+# def analyze_network(G,  data_dir='./', root = 'graph_analysis'):
+#     # Compute the degrees of the nodes
+#     # Compute the degrees of the nodes
+#     degrees = [d for n, d in G.degree()]
     
-    # Compute maximum, minimum, and median node degrees
-    max_degree = max(degrees)
-    min_degree = min(degrees)
-    median_degree = np.median(degrees)
+#     # Compute maximum, minimum, and median node degrees
+#     max_degree = max(degrees)
+#     min_degree = min(degrees)
+#     median_degree = np.median(degrees)
     
-    # Number of nodes and edges
-    num_nodes = G.number_of_nodes()
-    num_edges = G.number_of_edges()
+#     # Number of nodes and edges
+#     num_nodes = G.number_of_nodes()
+#     num_edges = G.number_of_edges()
     
-    # Average node degree
-    avg_degree = np.mean(degrees)
+#     # Average node degree
+#     avg_degree = np.mean(degrees)
     
-    # Density of the network
-    density = nx.density(G)
+#     # Density of the network
+#     density = nx.density(G)
     
-    # Number of communities (using connected components as a simple community proxy)
-    num_communities = nx.number_connected_components(G)
+#     # Number of communities (using connected components as a simple community proxy)
+#     num_communities = nx.number_connected_components(G)
     
-    # Print the results
-    print(f"Maximum Degree: {max_degree}")
-    print(f"Minimum Degree: {min_degree}")
-    print(f"Median Degree: {median_degree}")
-    print(f"Number of Nodes: {num_nodes}")
-    print(f"Number of Edges: {num_edges}")
-    print(f"Average Node Degree: {avg_degree:.2f}")
-    print(f"Density: {density:.4f}")
-    print(f"Number of Communities: {num_communities}")
+#     # Print the results
+#     print(f"Maximum Degree: {max_degree}")
+#     print(f"Minimum Degree: {min_degree}")
+#     print(f"Median Degree: {median_degree}")
+#     print(f"Number of Nodes: {num_nodes}")
+#     print(f"Number of Edges: {num_edges}")
+#     print(f"Average Node Degree: {avg_degree:.2f}")
+#     print(f"Density: {density:.4f}")
+#     print(f"Number of Communities: {num_communities}")
     
-    # Plot the results
-    fig, axs = plt.subplots(5, 1, figsize=(10, 15))
+#     # Plot the results
+#     fig, axs = plt.subplots(5, 1, figsize=(10, 15))
 
-    metrics = [
-        ('Number of Nodes', num_nodes),
-        ('Number of Edges', num_edges),
-        ('Avg Node Degree', avg_degree),
-        ('Density', density),
-        ('Number of Communities', num_communities)
-    ]
+#     metrics = [
+#         ('Number of Nodes', num_nodes),
+#         ('Number of Edges', num_edges),
+#         ('Avg Node Degree', avg_degree),
+#         ('Density', density),
+#         ('Number of Communities', num_communities)
+#     ]
     
-    for ax, (label, value) in zip(axs, metrics):
-        ax.barh(label, value, color='blue')
-        ax.set_xlim(0, max(value * 1.1, 1.1))  # Adding some padding for better visualization
-        ax.set_xlabel('Value')
-        ax.set_title(label)
+#     for ax, (label, value) in zip(axs, metrics):
+#         ax.barh(label, value, color='blue')
+#         ax.set_xlim(0, max(value * 1.1, 1.1))  # Adding some padding for better visualization
+#         ax.set_xlabel('Value')
+#         ax.set_title(label)
     
-    plt.tight_layout()
-    plt.savefig(f'{data_dir}/community_structure_{root}.svg')
-    # Show the plot
-    plt.show()
+#     plt.tight_layout()
+#     plt.savefig(f'{data_dir}/community_structure_{root}.svg')
+#     # Show the plot
+#     plt.show()
     
-    return max_degree, min_degree, median_degree
+#     return max_degree, min_degree, median_degree
 
-def graph_statistics_and_plots(G, data_dir='./'):
-    # Calculate statistics
-    degrees = [degree for node, degree in G.degree()]
-    degree_distribution = np.bincount(degrees)
-    average_degree = np.mean(degrees)
-    clustering_coefficients = nx.clustering(G)
-    average_clustering_coefficient = nx.average_clustering(G)
-    triangles = sum(nx.triangles(G).values()) / 3
-    connected_components = nx.number_connected_components(G)
-    density = nx.density(G)
+# def graph_statistics_and_plots(G, data_dir='./'):
+#     # Calculate statistics
+#     degrees = [degree for node, degree in G.degree()]
+#     degree_distribution = np.bincount(degrees)
+#     average_degree = np.mean(degrees)
+#     clustering_coefficients = nx.clustering(G)
+#     average_clustering_coefficient = nx.average_clustering(G)
+#     triangles = sum(nx.triangles(G).values()) / 3
+#     connected_components = nx.number_connected_components(G)
+#     density = nx.density(G)
     
-    # Diameter and Average Path Length (for connected graphs or components)
-    if nx.is_connected(G):
-        diameter = nx.diameter(G)
-        average_path_length = nx.average_shortest_path_length(G)
-    else:
-        diameter = "Graph not connected"
-        component_lengths = [nx.average_shortest_path_length(G.subgraph(c)) for c in nx.connected_components(G)]
-        average_path_length = np.mean(component_lengths)
+#     # Diameter and Average Path Length (for connected graphs or components)
+#     if nx.is_connected(G):
+#         diameter = nx.diameter(G)
+#         average_path_length = nx.average_shortest_path_length(G)
+#     else:
+#         diameter = "Graph not connected"
+#         component_lengths = [nx.average_shortest_path_length(G.subgraph(c)) for c in nx.connected_components(G)]
+#         average_path_length = np.mean(component_lengths)
     
-    # Plot Degree Distribution
-    plt.figure(figsize=(10, 6))
-    plt.hist(degrees, bins=range(min(degrees), max(degrees) + 1), alpha=0.75, color='blue')
-    plt.title('Degree Distribution')
-    plt.xlabel('Degree')
-    plt.ylabel('Frequency')
-    plt.savefig(f'{data_dir}/degree_distribution.svg')
-    #plt.close()
-    plt.show()
+#     # Plot Degree Distribution
+#     plt.figure(figsize=(10, 6))
+#     plt.hist(degrees, bins=range(min(degrees), max(degrees) + 1), alpha=0.75, color='blue')
+#     plt.title('Degree Distribution')
+#     plt.xlabel('Degree')
+#     plt.ylabel('Frequency')
+#     plt.savefig(f'{data_dir}/degree_distribution.svg')
+#     #plt.close()
+#     plt.show()
     
-    # Plot Clustering Coefficient Distribution
-    plt.figure(figsize=(10, 6))
-    plt.hist(list(clustering_coefficients.values()), bins=10, alpha=0.75, color='green')
-    plt.title('Clustering Coefficient Distribution')
-    plt.xlabel('Clustering Coefficient')
-    plt.ylabel('Frequency')
-    plt.savefig(f'{data_dir}/clustering_coefficient_distribution.svg')
-    plt.show()
-    #plt.close()
+#     # Plot Clustering Coefficient Distribution
+#     plt.figure(figsize=(10, 6))
+#     plt.hist(list(clustering_coefficients.values()), bins=10, alpha=0.75, color='green')
+#     plt.title('Clustering Coefficient Distribution')
+#     plt.xlabel('Clustering Coefficient')
+#     plt.ylabel('Frequency')
+#     plt.savefig(f'{data_dir}/clustering_coefficient_distribution.svg')
+#     plt.show()
+#     #plt.close()
     
-    statistics = {
-        'Degree Distribution': degree_distribution,
-        'Average Degree': average_degree,
-        'Clustering Coefficients': clustering_coefficients,
-        'Average Clustering Coefficient': average_clustering_coefficient,
-        'Number of Triangles': triangles,
-        'Connected Components': connected_components,
-        'Diameter': diameter,
-        'Density': density,
-        'Average Path Length': average_path_length,
-    }
+#     statistics = {
+#         'Degree Distribution': degree_distribution,
+#         'Average Degree': average_degree,
+#         'Clustering Coefficients': clustering_coefficients,
+#         'Average Clustering Coefficient': average_clustering_coefficient,
+#         'Number of Triangles': triangles,
+#         'Connected Components': connected_components,
+#         'Diameter': diameter,
+#         'Density': density,
+#         'Average Path Length': average_path_length,
+#     }
     
-    return statistics
+#     return statistics
  
-def graph_statistics_and_plots_for_large_graphs (G, data_dir='./', include_centrality=False,
-                                                 make_graph_plot=False,root='graph', log_scale=True, 
-                                                 log_hist_scale=True,density_opt=False, bins=50,
-                                                ):
-    # Basic statistics
-    num_nodes = G.number_of_nodes()
-    num_edges = G.number_of_edges()
-    degrees = [degree for node, degree in G.degree()]
-    log_degrees = np.log1p(degrees)  # Using log1p for a better handle on zero degrees
-    #degree_distribution = np.bincount(degrees)
-    average_degree = np.mean(degrees)
-    density = nx.density(G)
-    connected_components = nx.number_connected_components(G)
+# def graph_statistics_and_plots_for_large_graphs (G, data_dir='./', include_centrality=False,
+#                                                  make_graph_plot=False,root='graph', log_scale=True, 
+#                                                  log_hist_scale=True,density_opt=False, bins=50,
+#                                                 ):
+#     # Basic statistics
+#     num_nodes = G.number_of_nodes()
+#     num_edges = G.number_of_edges()
+#     degrees = [degree for node, degree in G.degree()]
+#     log_degrees = np.log1p(degrees)  # Using log1p for a better handle on zero degrees
+#     #degree_distribution = np.bincount(degrees)
+#     average_degree = np.mean(degrees)
+#     density = nx.density(G)
+#     connected_components = nx.number_connected_components(G)
     
-    # Centrality measures
-    if include_centrality:
-        degree_centrality = nx.degree_centrality(G)
-        betweenness_centrality = nx.betweenness_centrality(G)
-        closeness_centrality = nx.closeness_centrality(G)
-        eigenvector_centrality = nx.eigenvector_centrality(G, max_iter=1000)
+#     # Centrality measures
+#     if include_centrality:
+#         degree_centrality = nx.degree_centrality(G)
+#         betweenness_centrality = nx.betweenness_centrality(G)
+#         closeness_centrality = nx.closeness_centrality(G)
+#         eigenvector_centrality = nx.eigenvector_centrality(G, max_iter=1000)
     
-    # Community detection with Louvain method
-    partition = community_louvain.best_partition(G)
-    num_communities = len(set(partition.values()))
+#     # Community detection with Louvain method
+#     partition = community_louvain.best_partition(G)
+#     num_communities = len(set(partition.values()))
 
-    # Plotting
-    # Degree Distribution on a log-log scale
-    plt.figure(figsize=(10, 6))
+#     # Plotting
+#     # Degree Distribution on a log-log scale
+#     plt.figure(figsize=(10, 6))
      
-    if log_scale:
-        counts, bins, patches = plt.hist(log_degrees, bins=bins, alpha=0.75, color='blue', log=log_hist_scale, density=density_opt)
+#     if log_scale:
+#         counts, bins, patches = plt.hist(log_degrees, bins=bins, alpha=0.75, color='blue', log=log_hist_scale, density=density_opt)
     
-        plt.xscale('log')
-        plt.yscale('log')
-        xlab_0='Log(1 + Degree)'
-        if density_opt:
-            ylab_0='Probability Distribution'
-        else: 
-            ylab_0='Probability Distribution'
-        ylab_0=ylab_0 + log_hist_scale*' (log)'    
+#         plt.xscale('log')
+#         plt.yscale('log')
+#         xlab_0='Log(1 + Degree)'
+#         if density_opt:
+#             ylab_0='Probability Distribution'
+#         else: 
+#             ylab_0='Probability Distribution'
+#         ylab_0=ylab_0 + log_hist_scale*' (log)'    
         
         
-        plt_title='Histogram of Log-Transformed Node Degrees with Log-Log Scale'
+#         plt_title='Histogram of Log-Transformed Node Degrees with Log-Log Scale'
         
-    else:
-        counts, bins, patches = plt.hist(degrees, bins=bins, alpha=0.75, color='blue', log=log_hist_scale, density=density_opt)
-        xlab_0='Degree'
-        if density_opt:
-            ylab_0='Probability Distribution'
-        else: 
-            ylab_0='Probability Distribution'
-        ylab_0=ylab_0 + log_hist_scale*' (log)'     
-        plt_title='Histogram of Node Degrees'
+#     else:
+#         counts, bins, patches = plt.hist(degrees, bins=bins, alpha=0.75, color='blue', log=log_hist_scale, density=density_opt)
+#         xlab_0='Degree'
+#         if density_opt:
+#             ylab_0='Probability Distribution'
+#         else: 
+#             ylab_0='Probability Distribution'
+#         ylab_0=ylab_0 + log_hist_scale*' (log)'     
+#         plt_title='Histogram of Node Degrees'
 
-    plt.title(plt_title)
-    plt.xlabel(xlab_0)
-    plt.ylabel(ylab_0)
-    plt.savefig(f'{data_dir}/{plt_title}_{root}.svg')
-    plt.show()
+#     plt.title(plt_title)
+#     plt.xlabel(xlab_0)
+#     plt.ylabel(ylab_0)
+#     plt.savefig(f'{data_dir}/{plt_title}_{root}.svg')
+#     plt.show()
     
-    if make_graph_plot:
+#     if make_graph_plot:
         
-        # Additional Plots
-        # Plot community structure
-        plt.figure(figsize=(10, 6))
-        pos = nx.spring_layout(G)  # for better visualization
-        cmap = plt.get_cmap('viridis')
-        nx.draw_networkx(G, pos, node_color=list(partition.values()), node_size=20, cmap=cmap, with_labels=False)
-        plt.title('Community Structure')
-        plt.savefig(f'{data_dir}/community_structure_{root}.svg')
-        plt.show()
-        plt.close()
+#         # Additional Plots
+#         # Plot community structure
+#         plt.figure(figsize=(10, 6))
+#         pos = nx.spring_layout(G)  # for better visualization
+#         cmap = plt.get_cmap('viridis')
+#         nx.draw_networkx(G, pos, node_color=list(partition.values()), node_size=20, cmap=cmap, with_labels=False)
+#         plt.title('Community Structure')
+#         plt.savefig(f'{data_dir}/community_structure_{root}.svg')
+#         plt.show()
+#         plt.close()
 
-    # Save statistics
-    statistics = {
-        'Number of Nodes': num_nodes,
-        'Number of Edges': num_edges,
-        'Average Degree': average_degree,
-        'Density': density,
-        'Connected Components': connected_components,
-        'Number of Communities': num_communities,
-        # Centrality measures could be added here as well, but they are often better analyzed separately due to their detailed nature
-    }
-    if include_centrality:
-        centrality = {
-            'degree_centrality': degree_centrality,
-            'betweenness_centrality': betweenness_centrality,
-            'closeness_centrality': closeness_centrality,
-            'eigenvector_centrality': eigenvector_centrality,
-        }
-    else:
-        centrality=None
+#     # Save statistics
+#     statistics = {
+#         'Number of Nodes': num_nodes,
+#         'Number of Edges': num_edges,
+#         'Average Degree': average_degree,
+#         'Density': density,
+#         'Connected Components': connected_components,
+#         'Number of Communities': num_communities,
+#         # Centrality measures could be added here as well, but they are often better analyzed separately due to their detailed nature
+#     }
+#     if include_centrality:
+#         centrality = {
+#             'degree_centrality': degree_centrality,
+#             'betweenness_centrality': betweenness_centrality,
+#             'closeness_centrality': closeness_centrality,
+#             'eigenvector_centrality': eigenvector_centrality,
+#         }
+#     else:
+#         centrality=None
  
     
-    return statistics, include_centrality
+#     return statistics, include_centrality
 
-## Now add these colors to communities and make another dataframe
-def colors2Community(communities) -> pd.DataFrame:
-    ## Define a color palette
-    p = sns.color_palette(palette, len(communities)).as_hex()
-    random.shuffle(p)
-    rows = []
-    group = 0
-    for community in communities:
-        color = p.pop()
-        group += 1
-        for node in community:
-            rows += [{"node": node, "color": color, "group": group}]
-    df_colors = pd.DataFrame(rows)
-    return df_colors
+# ## Now add these colors to communities and make another dataframe
+# def colors2Community(communities) -> pd.DataFrame:
+#     ## Define a color palette
+#     p = sns.color_palette(palette, len(communities)).as_hex()
+#     random.shuffle(p)
+#     rows = []
+#     group = 0
+#     for community in communities:
+#         color = p.pop()
+#         group += 1
+#         for node in community:
+#             rows += [{"node": node, "color": color, "group": group}]
+#     df_colors = pd.DataFrame(rows)
+#     return df_colors
 
 
  
@@ -668,16 +668,16 @@ def remove_small_fragents (G_new, size_threshold):
     return G_new
 
 
-def simplify_node_name_with_llm(node_name, generate, max_tokens=2048, temperature=0.3):
-    # Generate a prompt for the LLM to simplify or describe the node name
-    system_prompt='You are an ontological graph maker. You carefully rename nodes in complex networks.'
-    prompt = f"Provide a simplified, more descriptive name for a network node named '{node_name}' that reflects its importance or role within a network."
+# def simplify_node_name_with_llm(node_name, generate, max_tokens=2048, temperature=0.3):
+#     # Generate a prompt for the LLM to simplify or describe the node name
+#     system_prompt='You are an ontological graph maker. You carefully rename nodes in complex networks.'
+#     prompt = f"Provide a simplified, more descriptive name for a network node named '{node_name}' that reflects its importance or role within a network."
    
-    # Assuming 'generate' is a function that calls the LLM with the given prompt
-    #simplified_name = generate(system_prompt=system_prompt, prompt)
-    simplified_name = generate(system_prompt=system_prompt, prompt=prompt, max_tokens=max_tokens, temperature=temperature)
+#     # Assuming 'generate' is a function that calls the LLM with the given prompt
+#     #simplified_name = generate(system_prompt=system_prompt, prompt)
+#     simplified_name = generate(system_prompt=system_prompt, prompt=prompt, max_tokens=max_tokens, temperature=temperature)
    
-    return simplified_name
+#     return simplified_name
 
 import networkx as nx
 from sklearn.metrics.pairwise import cosine_similarity
@@ -787,113 +787,113 @@ def simplify_graph(graph_, node_embeddings, tokenizer, model, similarity_thresho
 
     return new_graph, updated_embeddings
 
-def make_HTML (G,data_dir='./', graph_root='graph_root'):
+# def make_HTML (G,data_dir='./', graph_root='graph_root'):
 
-    net = Network(
-            #notebook=False,
-            notebook=True,
-            # bgcolor="#1a1a1a",
-            cdn_resources="remote",
-            height="900px",
-            width="100%",
-            select_menu=True,
-            # font_color="#cccccc",
-            filter_menu=False,
-        )
+#     net = Network(
+#             #notebook=False,
+#             notebook=True,
+#             # bgcolor="#1a1a1a",
+#             cdn_resources="remote",
+#             height="900px",
+#             width="100%",
+#             select_menu=True,
+#             # font_color="#cccccc",
+#             filter_menu=False,
+#         )
         
-    net.from_nx(G)
-    # net.repulsion(node_distance=150, spring_length=400)
-    net.force_atlas_2based(central_gravity=0.015, gravity=-31)
-    # net.barnes_hut(gravity=-18100, central_gravity=5.05, spring_length=380)
+#     net.from_nx(G)
+#     # net.repulsion(node_distance=150, spring_length=400)
+#     net.force_atlas_2based(central_gravity=0.015, gravity=-31)
+#     # net.barnes_hut(gravity=-18100, central_gravity=5.05, spring_length=380)
     
-    #net.show_buttons(filter_=["physics"])
-    net.show_buttons()
+#     #net.show_buttons(filter_=["physics"])
+#     net.show_buttons()
     
-    #net.show(graph_output_directory, notebook=False)
-    graph_HTML= f'{data_dir}/{graph_root}_graphHTML.html'
+#     #net.show(graph_output_directory, notebook=False)
+#     graph_HTML= f'{data_dir}/{graph_root}_graphHTML.html'
     
-    net.show(graph_HTML, #notebook=True
-            )
+#     net.show(graph_HTML, #notebook=True
+#             )
 
-    return graph_HTML
+#     return graph_HTML
 
-def return_giant_component_of_graph (G_new ):
-    connected_components = sorted(nx.connected_components(G_new), key=len, reverse=True)
-    G_new = G_new.subgraph(connected_components[0]).copy()
-    return G_new 
+# def return_giant_component_of_graph (G_new ):
+#     connected_components = sorted(nx.connected_components(G_new), key=len, reverse=True)
+#     G_new = G_new.subgraph(connected_components[0]).copy()
+#     return G_new 
     
-def return_giant_component_G_and_embeddings (G_new, node_embeddings):
-    connected_components = sorted(nx.connected_components(G_new), key=len, reverse=True)
-    G_new = G_new.subgraph(connected_components[0]).copy()
-    node_embeddings=update_node_embeddings(node_embeddings, G_new, tokenizer, model, verbatim=verbatim)
-    return G_new, node_embeddings
+# def return_giant_component_G_and_embeddings (G_new, node_embeddings):
+#     connected_components = sorted(nx.connected_components(G_new), key=len, reverse=True)
+#     G_new = G_new.subgraph(connected_components[0]).copy()
+#     node_embeddings=update_node_embeddings(node_embeddings, G_new, tokenizer, model, verbatim=verbatim)
+#     return G_new, node_embeddings
 
-def extract_number(filename):
-    # This function extracts numbers from a filename and converts them to an integer.
-    # It finds all sequences of digits in the filename and returns the first one as an integer.
-    # If no number is found, it returns -1.
-    match = re.search(r'(\d+)', filename)
-    return int(match.group(0)) if match else -1
+# def extract_number(filename):
+#     # This function extracts numbers from a filename and converts them to an integer.
+#     # It finds all sequences of digits in the filename and returns the first one as an integer.
+#     # If no number is found, it returns -1.
+#     match = re.search(r'(\d+)', filename)
+#     return int(match.group(0)) if match else -1
  
-def get_list_of_graphs_and_chunks (graph_q='graph_*_graph_clean.csv',  chunk_q='graph_*_chunks_clean.csv', data_dir='./',verbatim=False):
-    graph_pattern = os.path.join(data_dir, graph_q)
-    chunk_pattern = os.path.join(data_dir, chunk_q)
+# def get_list_of_graphs_and_chunks (graph_q='graph_*_graph_clean.csv',  chunk_q='graph_*_chunks_clean.csv', data_dir='./',verbatim=False):
+#     graph_pattern = os.path.join(data_dir, graph_q)
+#     chunk_pattern = os.path.join(data_dir, chunk_q)
     
-    # Use glob to find all files matching the patterns
-    graph_files = glob.glob(graph_pattern)
-    chunk_files = glob.glob(chunk_pattern)
+#     # Use glob to find all files matching the patterns
+#     graph_files = glob.glob(graph_pattern)
+#     chunk_files = glob.glob(chunk_pattern)
     
-    # Sort the files using the custom key function
-    graph_file_list = sorted(graph_files, key=extract_number)
-    chunk_file_list = sorted(chunk_files, key=extract_number)
+#     # Sort the files using the custom key function
+#     graph_file_list = sorted(graph_files, key=extract_number)
+#     chunk_file_list = sorted(chunk_files, key=extract_number)
 
-    if verbatim:
-        # Print the lists to verify
-        print ('\n'.join(graph_file_list[:10]), '\n\n', '\n'.join(chunk_file_list[:10]),'\n')
+#     if verbatim:
+#         # Print the lists to verify
+#         print ('\n'.join(graph_file_list[:10]), '\n\n', '\n'.join(chunk_file_list[:10]),'\n')
         
-        print('# graph files:', len (graph_file_list))
-        print('# chunk files:', len (chunk_file_list))
+#         print('# graph files:', len (graph_file_list))
+#         print('# chunk files:', len (chunk_file_list))
     
-    return graph_file_list, chunk_file_list
+#     return graph_file_list, chunk_file_list
 
-def print_graph_nodes_with_texts(G, separator="; ", N=64):
-    """
-    Prints out each node in the graph along with the associated texts, concatenated into a single string.
+# def print_graph_nodes_with_texts(G, separator="; ", N=64):
+#     """
+#     Prints out each node in the graph along with the associated texts, concatenated into a single string.
 
-    Parameters:
-    - G: A NetworkX graph object where each node has a 'texts' attribute containing a list of texts.
-    - separator: A string separator used to join texts. Default is "; ".
-    """
-    print("Graph Nodes and Their Associated Texts (Concatenated):")
-    for node, data in G.nodes(data=True):
-        texts = data.get('texts', [])
-        concatenated_texts = separator.join(texts)
-        print(f"Node: {node}, Texts: {concatenated_texts[:N]}")      
+#     Parameters:
+#     - G: A NetworkX graph object where each node has a 'texts' attribute containing a list of texts.
+#     - separator: A string separator used to join texts. Default is "; ".
+#     """
+#     print("Graph Nodes and Their Associated Texts (Concatenated):")
+#     for node, data in G.nodes(data=True):
+#         texts = data.get('texts', [])
+#         concatenated_texts = separator.join(texts)
+#         print(f"Node: {node}, Texts: {concatenated_texts[:N]}")      
        
-def print_graph_nodes (G, separator="; ", N=64):
-    """
-    Prints out each node in the graph along with the associated texts, concatenated into a single string.
+# def print_graph_nodes (G, separator="; ", N=64):
+#     """
+#     Prints out each node in the graph along with the associated texts, concatenated into a single string.
 
-    Parameters:
-    - G: A NetworkX graph object where each node has a 'texts' attribute containing a list of texts.
-    - separator: A string separator used to join texts. Default is "; ".
-    """
-    i=0
-    print("Graph Nodes and Their Associated Texts (Concatenated):")
-    for node in G.nodes :
-        print(f"Node {i}: {node}")  
-        i=i+1
-def get_text_associated_with_node(G, node_identifier ='bone', ):
+#     Parameters:
+#     - G: A NetworkX graph object where each node has a 'texts' attribute containing a list of texts.
+#     - separator: A string separator used to join texts. Default is "; ".
+#     """
+#     i=0
+#     print("Graph Nodes and Their Associated Texts (Concatenated):")
+#     for node in G.nodes :
+#         print(f"Node {i}: {node}")  
+#         i=i+1
+# def get_text_associated_with_node(G, node_identifier ='bone', ):
         
-    # Accessing and printing the 'texts' attribute for the node
-    if 'texts' in G.nodes[node_identifier]:
-        texts = G.nodes[node_identifier]['texts']
-        concatenated_texts = "; ".join(texts)  # Assuming you want to concatenate the texts
-        print(f"Texts associated with node '{node_identifier}': {concatenated_texts}")
-    else:
-        print(f"No 'texts' attribute found for node {node_identifier}")
-        concatenated_texts=''
-    return concatenated_texts 
+#     # Accessing and printing the 'texts' attribute for the node
+#     if 'texts' in G.nodes[node_identifier]:
+#         texts = G.nodes[node_identifier]['texts']
+#         concatenated_texts = "; ".join(texts)  # Assuming you want to concatenate the texts
+#         print(f"Texts associated with node '{node_identifier}': {concatenated_texts}")
+#     else:
+#         print(f"No 'texts' attribute found for node {node_identifier}")
+#         concatenated_texts=''
+#     return concatenated_texts 
 
 import networkx as nx
 import json
@@ -1335,31 +1335,31 @@ def collect_entities(graph): #converts graph to natural language
 
     return " ".join(relationships)
 
-def detect_communities(graph):    
-    communities = community_louvain.best_partition(graph)
-    return communities
+# def detect_communities(graph):    
+#     communities = community_louvain.best_partition(graph)
+#     return communities
 
-def summarize_communities(graph, communities, generate):
-    community_summaries = []
-    for index, community in tqdm(enumerate(communities)):
-        description = collect_entities(graph.subgraph(community))
-#         nodes = list(subgraph.nodes)
-#         edges = list(subgraph.out_edges(data=True))
-#         description = "Relationships: "
-#         relationships = []
-#         for edge in edges:
-#             relationships.append(
-#                 f"{edge[0]} {edge[2]['title']} {edge[1]}.")
+# def summarize_communities(graph, communities, generate):
+#     community_summaries = []
+#     for index, community in tqdm(enumerate(communities)):
+#         description = collect_entities(graph.subgraph(community))
+# #         nodes = list(subgraph.nodes)
+# #         edges = list(subgraph.out_edges(data=True))
+# #         description = "Relationships: "
+# #         relationships = []
+# #         for edge in edges:
+# #             relationships.append(
+# #                 f"{edge[0]} {edge[2]['title']} {edge[1]}.")
             
-#         description += " ".join(relationships)
+# #         description += " ".join(relationships)
 
-        response = generate(system_prompt= "You are an expert in multiple engineering fields. Summarize the following relationships and make a professional report.",
-                                       prompt= description)
+#         response = generate(system_prompt= "You are an expert in multiple engineering fields. Summarize the following relationships and make a professional report.",
+#                                        prompt= description)
 
-        print(description)
-        summary = response.strip()
-        community_summaries.append(summary)
-    return community_summaries
+#         print(description)
+#         summary = response.strip()
+#         community_summaries.append(summary)
+#     return community_summaries
 
 # #--- this is not done yet
 # def graph_rag_pipeline(documents, query, chunk_size=600, overlap_size=100):
