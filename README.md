@@ -8,12 +8,12 @@ Corresponding author: mbuehler@MIT.EDU
 
 ## Getting Started
 
-1. Instantiate Environment
+1. Instantiate environment 
 2. Install CUDA tooklit
 3. Install llama-cpp-python
 4. Install GraphReasoning package
 
-## 1) Environment Configuration:
+## 1) Instantiate Environment Configuration:
 
 ```
 conda create -n LLM_GraphAgents python=3.11 -y
