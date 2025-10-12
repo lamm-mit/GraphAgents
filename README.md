@@ -44,7 +44,7 @@ pip install .
 
 ## Citation
 
-Please cite:
+Please cite this work as:
 
 ```bibtex
 @article{stewart2025graphagents,
