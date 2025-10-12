@@ -1,4 +1,4 @@
-# GRAPH-AGENTS: Knowledge Graph-Guided Agentic AI for Cross-Domain Materials Design 
+# GRAPHAGENTS: Knowledge Graph-Guided Agentic AI for Cross-Domain Materials Design 
 
 #### Isabella Stewart, Tarjei Hage, Yu-Chuan (Michael) Hsu, and Markus J. Buehler, MIT, 2025 
 Corresponding author: mbuehler@MIT.EDU
