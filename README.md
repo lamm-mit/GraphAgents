@@ -13,9 +13,10 @@ Corresponding author: mbuehler@MIT.EDU
 
 ## 1) Environment Configuration:
 
+```
 conda create -n LLM_GraphAgents python=3.11 -y
 conda activate LLM_GraphAgents
-
+```
 
 ## 2) Install CUDA (Recommended via Conda) 
 
@@ -25,7 +26,7 @@ Note: Ensure that the NVIDIA CUDA driver is already installed on your system bef
 conda install -c "nvidia/label/cuda-12.6.0" cuda-toolkit cuda-nvcc -y --copy
 ```
 
-## 3) (Optional) Install llama-ccpp-python
+## 3) (Optional) Install llama-ccp-python
 Required only if you intend to run models locally (≥ v0.2.0). 
 You can skip this step if you’re using API-based LLMs.
 
