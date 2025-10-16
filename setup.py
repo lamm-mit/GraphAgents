@@ -16,6 +16,7 @@ setup(
         'matplotlib',
         'pandas',
         'transformers',
+        "rich[markdown]>=13.7.0",
         'powerlaw',
         'markdown2',
         'pdfkit',
@@ -41,7 +42,7 @@ setup(
         'uuid',
         'pdfminer.six',
         'python-louvain',
-        'wkhtmltopdf'
+        # 'wkhtmltopdf'
     ],
     description='GraphReasoning: Use LLM to reason over graphs, combined with multi-agent modeling.',
     long_description=long_description,
