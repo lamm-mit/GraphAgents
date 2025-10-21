@@ -34,7 +34,6 @@ You can skip this step if you’re using API-based LLMs.
 
 ```
 CMAKE_ARGS="-DGGML_CUDA=on -DLLAVA_BUILD=on" FORCE_CMAKE=1 pip install git+https://github.com/abetlen/llama-cpp-python@v0.3.8 --verbose
-
 ```
 
 ## 4) Install GraphReasoning package
