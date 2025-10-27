@@ -46,8 +46,6 @@ setup(
         'ipykernel',
         'nbformat',
         'nbconvert',
-        # "flaml[automl]>=2.1.1",
-        # "tqdm>=4.66.0",
     ],
     description='GraphReasoning: Use LLM to reason over graphs, combined with multi-agent modeling.',
     long_description=long_description,
