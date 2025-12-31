@@ -7,8 +7,8 @@ with open('README.md', 'r', encoding='utf-8') as f:
 setup(
     name='GraphReasoning',
     version='0.3.01',
-    author='Markus J. Buehler, Yu-Chuan Hsu',
-    author_email='mbuehler@mit.edu, mkychsu@mit.edu',
+    author='Markus J. Buehler, Isabella Stewart',
+    author_email='mbuehler@mit.edu',
     packages=find_packages(),
     install_requires=[
         'numpy',
