@@ -5,7 +5,8 @@ Corresponding author: mbuehler@MIT.EDU
 
 #### LAMM, Massachusetts Institute of Technology
 
-[overview.pdf](https://github.com/user-attachments/files/24774617/overview.pdf)
+![Overview](https://github.com/user-attachments/assets/8a26f952-9efa-4d14-98b4-29fb34fe4ad9)
+
 
 ## Getting Started
 
