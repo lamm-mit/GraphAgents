@@ -7,8 +7,6 @@ Corresponding author: mbuehler@MIT.EDU
 
 ![Overview](https://github.com/user-attachments/assets/8a26f952-9efa-4d14-98b4-29fb34fe4ad9)
 
-<img width="601" height="258" alt="creative_versus_hybrid" src="https://github.com/user-attachments/assets/44a0fb99-11ec-4002-9534-4f2f45b87b5d" />
-
 ## Getting Started
 
 1. Instantiate environment 
