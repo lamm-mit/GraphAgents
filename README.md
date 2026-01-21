@@ -7,6 +7,7 @@ Corresponding author: mbuehler@MIT.EDU
 
 ![Overview](https://github.com/user-attachments/assets/8a26f952-9efa-4d14-98b4-29fb34fe4ad9)
 
+[creative_versus_hybrid.pdf](https://github.com/user-attachments/files/24774679/creative_versus_hybrid.pdf)
 
 ## Getting Started
 
