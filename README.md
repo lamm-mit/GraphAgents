@@ -96,7 +96,6 @@ While any model can be used,these notebooks support the approach described in ou
 Open and run the following notebook:
 ```
 graphAgents.ipynb
-
 ```
 
 As described in our Methods, the agents use the following generated kowledge graphs and embeddings stored in: 
