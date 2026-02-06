@@ -32,7 +32,7 @@ This repository introduces a set of methods and resources for creative knowledge
 - A complementary graph representing the **broader PFAS knowledge domain**
 
 
-# GraphAgents
+# Navigate the GraphAgents Repository
 
 ## Getting Started
 
