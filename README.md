@@ -5,6 +5,16 @@ Corresponding author: mbuehler@MIT.EDU
 
 #### LAMM, Massachusetts Institute of Technology
 
+## Summary 
+
+How can scientific knowledge be meaningfully connected across domains as the volume of information continues to grow? While Large Language Models (LLMs) offer promise for accelerating discovery, the core challenge has shifted from information access to cross-domain integration—an issue that is especially pronounced in materials science, where advances require linking molecular chemistry to macroscopic performance. Neither human researchers nor single-agent LLMs can effectively manage this complexity, with the latter often exhibiting brittle reasoning and hallucinations.
+
+To address this limitation, we introduce a multi-agent framework in which agents can traverse and reason over large-scale knowledge graphs encoding diverse materials science properties. We evaluate this capability on a challenging scientific task: identifying sustainable alternatives to per- and polyfluoroalkyl substances (PFAS), a widely used class of synthetic chemicals under increasing regulatory scrutiny. Within the framework, specialized agents handle problem decomposition, evidence retrieval, design parameter extraction, and graph-based reasoning, enabling the discovery of latent connections that support hypothesis generation for PFAS-free materials. Ablation studies demonstrate that the full multi-agent pipeline outperforms single-shot prompting, while adaptive graph traversal strategies balance focused, exploitative searches with broader exploratory discovery. Using biomedical tubing as a case study, the framework generates PFAS-free material candidates that jointly optimize performance, stability, chemical resistance, and biocompatibility, illustrating a general, graph-driven approach for expanding the materials design space through multi-agent reasoning.
+
+
+<img width="698" height="270" alt="overview" src="https://github.com/user-attachments/assets/3b9ecb46-963a-461a-8323-cbfb8f0489ee" />
+
+
 ## Getting Started
 
 1. Instantiate environment 
