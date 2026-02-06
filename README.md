@@ -95,6 +95,9 @@ While any model can be used,these notebooks support the approach described in ou
 
 
 # 🤖Run GraphAgents  
+<img width="1229" height="487" alt="graphagents" src="https://github.com/user-attachments/assets/2228ee95-1e49-4d62-9201-fbc3533213dd" />
+
+
 Open and run the following notebook:
 ```
 graphAgents.ipynb
