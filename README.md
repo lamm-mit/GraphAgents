@@ -1,6 +1,6 @@
 # GraphAgents 📈: Knowledge Graph-Guided Agentic AI for Cross-Domain Materials Design 
 
-#### Isabella Stewart, Tarjei Hage, Yu-Chuan (Michael) Hsu, and Markus J. Buehler, MIT, 2025 
+#### Isabella A. Stewart, Tarjei Hage, Yu-Chuan (Michael) Hsu, and Markus J. Buehler, MIT, 2025 
 Corresponding author: mbuehler@MIT.EDU
 
 #### LAMM, Massachusetts Institute of Technology
@@ -44,6 +44,8 @@ pip install -r requirements.txt
 pip install .
 ```
 
+## Supplementary
+All supplementary files may be found in the `Experiments` folder including graphs. 
 
 
 ## Citation
