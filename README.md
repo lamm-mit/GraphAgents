@@ -73,15 +73,17 @@ pip install -r requirements.txt
 pip install .
 ```
 
-# Graph Generation
+# 🚀 Knowledge Graph Generation
 
 Convert and run the Jupyter notebook to a Python script:
 
+## 1) Generate PFAS Knowledge Graph 
 For full-paper extraction to generate our PFAS knowledge graph: 
 ```
 jupyter nbconvert --to script make_KG_PFAS.ipynb
 python make_KG_PFAS.py
 ```
+## 2) Generate Material Properties Knowledge Graph 
 For abstract extraction to generate our global material properties knowledge graph: 
 ```
 jupyter nbconvert --to script make_KG_materialproperties.ipynb
@@ -92,7 +94,7 @@ While any model can be used,these notebooks support the approach described in ou
 
 
 
-# Run GraphAgents  
+# 🤖Run GraphAgents  
 Open and run the following notebook:
 ```
 graphAgents.ipynb
@@ -100,11 +102,11 @@ graphAgents.ipynb
 
 As described in our Methods, the agents use the following generated kowledge graphs and embeddings stored in: 
 
-Full-Paper PFAS knowledge graph: 
+## 1) PFAS Knowledge Graph 
 `/Experiments/GRAPHDATA_PFAS/PFAS_KG.graphml`
 `/Experiments/GRAPHDATA_OUTPUT_PFAS/SG_LLAMA4_70b.pkl`
 
-Abstract-based material properties knowledge graph: 
+## 2) Material Properties Knowledge Graph 
 `/Experiments/GRAPHDATA_MATERIALPROPERTIES/MatProp_KG.graphml`
 `/Experiments/GRAPHDATA_OUTPUT_MATERIALPROPERTIES/SG_LLAMA4_70b.pkl`
 
