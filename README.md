@@ -32,8 +32,6 @@ This repository introduces a set of methods and resources for creative knowledge
 
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
-<img width="1469" height="627" alt="Screenshot 2026-02-06 at 10 20 27 AM" src="https://github.com/user-attachments/assets/48e2567f-3f11-4aec-bee6-153229820241" />
-
 # Create GraphAgents
 
 ## Getting Started
