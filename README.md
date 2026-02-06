@@ -22,8 +22,8 @@ Our contributions include:
 3. A knowledge graph and embedding framework focused on the material properties of PFAS.
 4. A comprehensive knowledge graph and embedding space capturing the broader PFAS domain.
 
+<img width="1229" height="487" alt="graphagents" src="https://github.com/user-attachments/assets/af8bc93e-c445-4315-9927-2396f9226af4" />
 
-<img width="1240" height="537" alt="graphagents" src="https://github.com/user-attachments/assets/e4804f2e-41fe-4e00-bbb4-19a8a7a43995" />
 
 ## Getting Started
 
