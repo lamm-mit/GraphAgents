@@ -11,10 +11,6 @@ How can scientific knowledge be meaningfully connected across domains as the vol
 
 To address this limitation, we introduce a multi-agent framework in which agents can traverse and reason over large-scale knowledge graphs encoding diverse materials science properties. We evaluate this capability on a challenging scientific task: identifying sustainable alternatives to per- and polyfluoroalkyl substances (PFAS), a widely used class of synthetic chemicals under increasing regulatory scrutiny. Within the framework, specialized agents handle problem decomposition, evidence retrieval, design parameter extraction, and graph-based reasoning, enabling the discovery of latent connections that support hypothesis generation for PFAS-free materials. Ablation studies demonstrate that the full multi-agent pipeline outperforms single-shot prompting, while adaptive graph traversal strategies balance focused, exploitative searches with broader exploratory discovery. Using biomedical tubing as a case study, the framework generates PFAS-free material candidates that jointly optimize performance, stability, chemical resistance, and biocompatibility, illustrating a general, graph-driven approach for expanding the materials design space through multi-agent reasoning.
 
-
-<img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
-
-
 ## Contributions:
 
 1. Novel graph traversal strategies for creative exploration, including Breadth-First Search, Depth-First Search, and a Semantic-Stop criterion.
@@ -22,7 +18,10 @@ To address this limitation, we introduce a multi-agent framework in which agents
 3. A knowledge graph and embedding framework focused on the material properties of PFAS.
 4. A comprehensive knowledge graph and embedding space capturing the broader PFAS domain.
 
-<img width="1229" height="487" alt="graphagents" src="https://github.com/user-attachments/assets/af8bc93e-c445-4315-9927-2396f9226af4" />
+<img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
+
+
+
 
 
 ## Getting Started
