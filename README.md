@@ -15,7 +15,7 @@ To address this limitation, we introduce a multi-agent framework in which agents
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
 
-Our contributions include:
+## Contributions:
 
 1. Novel graph traversal strategies for creative exploration, including Breadth-First Search, Depth-First Search, and a Semantic-Stop criterion.
 2. Agent-based methods for uncovering latent connections, comprising two approaches: (i) the Hybrid GraphWeave agent, which integrates and links concepts within existing textual evidence, and (ii) the Creative GraphWeave agent, which forges previously unobserved conceptual connections.
