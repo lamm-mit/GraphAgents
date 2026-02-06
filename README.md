@@ -11,11 +11,24 @@ How can scientific knowledge be meaningfully connected across domains as the vol
 
 To address this limitation, we introduce a multi-agent framework in which agents can traverse and reason over large-scale knowledge graphs encoding diverse materials science properties. We evaluate this capability on a challenging scientific task: identifying sustainable alternatives to per- and polyfluoroalkyl substances (PFAS), a widely used class of synthetic chemicals under increasing regulatory scrutiny. Within the framework, specialized agents handle problem decomposition, evidence retrieval, design parameter extraction, and graph-based reasoning, enabling the discovery of latent connections that support hypothesis generation for PFAS-free materials. Ablation studies demonstrate that the full multi-agent pipeline outperforms single-shot prompting, while adaptive graph traversal strategies balance focused, exploitative searches with broader exploratory discovery. Using biomedical tubing as a case study, the framework generates PFAS-free material candidates that jointly optimize performance, stability, chemical resistance, and biocompatibility, illustrating a general, graph-driven approach for expanding the materials design space through multi-agent reasoning.
 
-## Contributions:
+## ✨ Contributions
 
-1. Novel graph traversal strategies for creative exploration, including Breadth-First Search, Depth-First Search, and a Semantic-Stop criterion.
-2. Agent-based methods for uncovering latent connections: (i) the Hybrid GraphWeave agent, which integrates and links concepts within existing textual evidence, and (ii) the Creative GraphWeave agent, which forges previously unobserved conceptual connections.
-3. A knowledge graph on the material properties of PFAS and a second graph on the broader PFAS domain.
+This repository introduces a set of methods and resources for creative knowledge discovery in the PFAS domain:
+
+### 🔍 Graph Traversal for Creative Exploration
+- Breadth-First Search (BFS)
+- Depth-First Search (DFS)
+- **Semantic-Stop**: a stopping criterion guided by semantic relevance rather than depth alone
+
+### 🤖 Agent-Based Discovery of Latent Connections
+- **Hybrid GraphWeave Agent**  
+  Connects related concepts grounded within existing textual evidence
+- **Creative GraphWeave Agent**  
+  Generates novel, previously unobserved conceptual links across the graph
+
+### 🧠 PFAS Knowledge Graphs
+- A knowledge graph capturing **material properties of PFAS**
+- A complementary graph representing the **broader PFAS knowledge domain**
 
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
