@@ -33,9 +33,9 @@ This repository introduces a set of methods and resources for creative knowledge
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
 
+# Create GraphAgents
 
-
-# Getting Started
+## Getting Started
 
 1. Instantiate environment 
 2. Install CUDA tooklit
@@ -74,8 +74,11 @@ pip install -r requirements.txt
 pip install .
 ```
 
-# Supplementary
-All supplementary files may be found in the `Experiments` folder including graphs. 
+# Supplementary Output
+All supplementary files may be found in the `Experiments` folder. 
+
+
+`Notebooks/SG/GRAPHDATA_OUTPUT_paper/final_graph.pkl`
 
 
 ## Citation
