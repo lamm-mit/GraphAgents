@@ -5,7 +5,7 @@ Corresponding author: mbuehler@MIT.EDU
 
 #### LAMM, Massachusetts Institute of Technology
 
-## Summary 
+# Summary 
 
 How can scientific knowledge be meaningfully connected across domains as the volume of information continues to grow? While Large Language Models (LLMs) offer promise for accelerating discovery, the core challenge has shifted from information access to cross-domain integration—an issue that is especially pronounced in materials science, where advances require linking molecular chemistry to macroscopic performance. Neither human researchers nor single-agent LLMs can effectively manage this complexity, with the latter often exhibiting brittle reasoning and hallucinations.
 
@@ -22,8 +22,7 @@ To address this limitation, we introduce a multi-agent framework in which agents
 
 
 
-
-## Getting Started
+# Getting Started
 
 1. Instantiate environment 
 2. Install CUDA tooklit
@@ -62,7 +61,7 @@ pip install -r requirements.txt
 pip install .
 ```
 
-## Supplementary
+# Supplementary
 All supplementary files may be found in the `Experiments` folder including graphs. 
 
 
