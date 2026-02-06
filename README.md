@@ -32,7 +32,7 @@ This repository introduces a set of methods and resources for creative knowledge
 
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
-# Create GraphAgents
+# GraphAgents
 
 ## Getting Started
 
@@ -73,12 +73,52 @@ pip install -r requirements.txt
 pip install .
 ```
 
-# Supplementary Output
-All supplementary files may be found in the `Experiments` folder. 
+# Graph Generation
+
+Convert and run the Jupyter notebook to a Python script:
+
+For full-paper extraction to generate our PFAS knowledge graph: 
+```
+jupyter nbconvert --to script make_KG_PFAS.ipynb
+python make_KG_PFAS.py
+```
+For abstract extraction to generate our global material properties knowledge graph: 
+```
+jupyter nbconvert --to script make_KG_materialproperties.ipynb
+python make_KG_materialproperties.py
+```
+
+While any model can be used,these notebooks support the approach described in our Methods section by using the Together API to provide hosted LLM inference with meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8 for graph generation
 
 
-`Notebooks/SG/GRAPHDATA_OUTPUT_paper/final_graph.pkl`
 
+# Run GraphAgents  
+Open and run the following notebook:
+```
+graphAgents.ipynb
+
+```
+
+As described in our Methods, the agents use the following generated kowledge graphs and embeddings stored in: 
+
+Full-Paper PFAS knowledge graph: 
+`/Experiments/GRAPHDATA_PFAS/PFAS_KG.graphml`
+`/Experiments/GRAPHDATA_OUTPUT_PFAS/SG_LLAMA4_70b.pkl`
+
+Abstract-based material properties knowledge graph: 
+`/Experiments/GRAPHDATA_MATERIALPROPERTIES/MatProp_KG.graphml`
+`/Experiments/GRAPHDATA_OUTPUT_MATERIALPROPERTIES/SG_LLAMA4_70b.pkl`
+
+
+
+# Supplementary 
+All output from the agentic pipeline as reported in our Results may be found in the `/Experiments/Supplementary` folder. 
+
+
+To recreate our ablation studies please refer to: 
+```
+graphAgents_ablation.ipynb
+```
 
 ## Citation
 
