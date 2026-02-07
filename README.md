@@ -1,4 +1,4 @@
-# GraphAgents 🔀: Knowledge Graph-Guided Agentic AI for Cross-Domain Materials Design 
+# GraphAgents: Knowledge Graph-Guided Agentic AI for Cross-Domain Materials Design 
 
 #### Isabella A. Stewart, Tarjei Hage, Yu-Chuan (Michael) Hsu, and Markus J. Buehler, MIT, 2025 
 Corresponding author: mbuehler@MIT.EDU
@@ -11,28 +11,28 @@ How can scientific knowledge be meaningfully connected across domains as the vol
 
 To address this limitation, we introduce a multi-agent framework in which agents can traverse and reason over large-scale knowledge graphs encoding diverse materials science properties. We evaluate this capability on a challenging scientific task: identifying sustainable alternatives to per- and polyfluoroalkyl substances (PFAS), a widely used class of synthetic chemicals under increasing regulatory scrutiny. Within the framework, specialized agents handle problem decomposition, evidence retrieval, design parameter extraction, and graph-based reasoning, enabling the discovery of latent connections that support hypothesis generation for PFAS-free materials. Ablation studies demonstrate that the full multi-agent pipeline outperforms single-shot prompting, while adaptive graph traversal strategies balance focused, exploitative searches with broader exploratory discovery. Using biomedical tubing as a case study, the framework generates PFAS-free material candidates that jointly optimize performance, stability, chemical resistance, and biocompatibility, illustrating a general, graph-driven approach for expanding the materials design space through multi-agent reasoning.
 
-## ✨ Contributions
+## Contributions
 <img width="1459" height="581" alt="Overview_img" src="https://github.com/user-attachments/assets/274af413-bcf3-4432-9936-04d82fc5ff96" />
 
-This repository introduces a set of methods and resources for creative knowledge discovery in the PFAS domain:
+This repository introduces a set of methods and resources for creative knowledge discovery.
 
-### 🔍 Graph Traversal for Creative Exploration
+### Graph Traversal for Creative Exploration
 - Breadth-First Search (BFS)
 - Depth-First Search (DFS)
 - **Semantic-Stop**: a stopping criterion guided by semantic relevance rather than depth alone
 
-### 🤖 Agent-Based Discovery of Latent Connections
+### Agent-Based Discovery of Latent Connections
 - **Hybrid GraphWeave Agent**  
   Connects related concepts grounded within existing textual evidence
 - **Creative GraphWeave Agent**  
   Generates novel, previously unobserved conceptual links across the graph
 
-### 🧠 PFAS Knowledge Graphs
+### Example application: PFAS Knowledge Graphs
 - A knowledge graph capturing **material properties of PFAS**
 - A complementary graph representing the **broader PFAS knowledge domain**
 
 
-# 🗺️ Navigating this Repository 
+# Navigating this Repository 
 
 ## Getting Started
 
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 pip install .
 ```
 
-# 🚀 Knowledge Graph Generation
+# Knowledge Graph Generation
 
 Convert and run the Jupyter notebook to a Python script:
 
@@ -94,7 +94,7 @@ While any model can be used,these notebooks support the approach described in ou
 
 
 
-# 🤖Run GraphAgents  
+# Run GraphAgents  
 <img width="1229" height="487" alt="graphagents" src="https://github.com/user-attachments/assets/2228ee95-1e49-4d62-9201-fbc3533213dd" />
 
 
@@ -130,10 +130,9 @@ Please cite this work as:
 
 ```bibtex
 @article{stewart2025graphagents,
-  title     = {GRAPHAGENTS: KNOWLEDGE GRAPH–GUIDED AGENTIC AI
-FOR CROSS-DOMAIN MATERIALS DESIGN},
+  title     = {GraphAgents: Knowledge Graph–Guided Agentic AI for Cross-Domain Materials Design},
   author    = {x},
   journal   = {x},
-  year      = {2025},
+  year      = {2026},
   doi       = {x}
 }
