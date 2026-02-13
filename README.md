@@ -129,10 +129,10 @@ graphAgents_ablation.ipynb
 Please cite this work as:
 
 ```bibtex
-@article{stewart2025graphagents,
+@article{stewart2026graphagents,
   title     = {GraphAgents: Knowledge Graph–Guided Agentic AI for Cross-Domain Materials Design},
-  author    = {x},
-  journal   = {x},
+  author    = {Isabella A. Stewart and Tarjei Paule Hage and Yu-Chuan Hsu and Markus J. Buehler},
+  journal   = {arXiv preprint arXiv:2602.07491},
   year      = {2026},
-  doi       = {x}
+  url       = {https://arxiv.org/abs/2602.07491}
 }
